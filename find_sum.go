@@ -4,22 +4,22 @@ import (
 	"math"
 )
 
-type Segment struct {
+type segment struct {
 	Sum   int
 	Left  int
 	Right int
 }
 
-func findSum(arr []int) *Segment {
+func findSum(arr []int) *segment {
 	var allNeg bool = true
-	var negMax *Segment = &Segment{
+	var negMax *segment = &segment{
 		Sum:   math.MinInt32,
 		Left:  0,
 		Right: 0,
 	}
 
-	max := &Segment{}
-	current := &Segment{}
+	max := &segment{}
+	current := &segment{}
 
 	for i, el := range arr {
 
@@ -53,7 +53,7 @@ func findSum(arr []int) *Segment {
 	return max
 }
 
-func incNegCount(negMax *Segment, i, el int) {
+func incNegCount(negMax *segment, i, el int) {
 	if el > negMax.Sum {
 		negMax.Sum = el
 		negMax.Left = i
